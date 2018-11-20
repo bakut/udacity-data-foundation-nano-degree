@@ -1,2 +1,2 @@
 # udacity-data-foundation-nano-degree
-data foundation projects i carried out 
+Data Foundation Projects i carried out during my Udacity Nano degree.
