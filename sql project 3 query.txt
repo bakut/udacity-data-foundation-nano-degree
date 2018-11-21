@@ -1,0 +1,30 @@
+text file for udacity SQL project 3
+1. INSIGHT 1(this query shows the number of tracks in a genre amd names, arranged in desending order)
+SELECT genre.name AS 'GENRE', count(*) AS 'NUMBERS'
+FROM track 
+JOIN genre on genre.genreid=track.genreid
+GROUP BY genre
+ORDER by 2 desc;
+
+2. INSIGHT 2(this query shows the avg milliseconds for every genre)
+SELECT genre.name AS 'GENRE', track.milliseconds
+FROM track 
+JOIN genre on genre.genreid=track.genreid
+WHERE Track.Milliseconds > (select avg(milliseconds) FROM Track)
+GROUP BY genre
+ORDER by 2 desc;
+
+
+3.INSIGHT 3(this query shows the number of times a track is played and the playlist name)
+select count(trackid) as 'Numbers of tracks', Playlist.Name
+from playlisttrack, playlist
+on playlisttrack.playlistid = playlist.playlistid
+group by name
+order by 1 desc;
+
+4 INSIGHT 4(This query shows the first names of support reps and the number of reports they get in desending order)
+select e.firstname, count(c.customerid) as 'TotalCustomers'
+from employee as e
+join customer as c on e.employeeid = c.supportrepid
+group by e.employeeid
+order by 2 desc;
